@@ -12,7 +12,6 @@ passport.use(
     function(accessToken, refreshToken, profile, cb) {
         User.findOne({ googleId: profile.id}).then(async function(user) {
             if (user) return cb(null, user);
-
             try {
                 user = await User.create({
                     name: profile.displayName,
@@ -32,9 +31,8 @@ passport.serializeUser(function(user, cb) {
     cb(null, user._id);
 });
 
-passport.deserializeUser(function(userId, cb) {
-    User.findById(userId).then(function(user) {
-        cb(null, user);
-    });
+passport.deserializeUser(async function(userId, cb) {
+  User.findById(userId).then(function(user) {
+    cb(null, user);
+  });
 });
-
