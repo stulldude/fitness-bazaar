@@ -1,17 +1,10 @@
 <%- include('../partials/header') %>
 
-<form action="/" method="POST">
+<form action="/routines/<%= routineId %>/workouts" method="POST">
     <label>WORKOUT NAME</label>
     <input type="text" name="name" required>
-    <br>
-    <%  for (let i = 0; i < 2; i++) { %>
-        <label>EXERCISE</label>
-        <input type="text" name="exercise" required>
-        <label>SETS</label>
-        <input type="number" name="sets" required>
-        <label>REPS</label>
-        <input type="number" name="reps" required>
-        <br>
-    <% } %>
+    <input type="submit" value="CONTINUE">
+    <br>   
 </form>
 
+<%- include('../partials/footer') %>

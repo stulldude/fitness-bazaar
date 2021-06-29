@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+<% routine.workouts.forEach(function(workout, idx){ %>
+    <h3><%= routine.workouts[idx].name %></h3>
+    <% if (routine.workouts.exercises) routine.workouts.exercises.forEach(function(exercise) { %>
+        <table>
+            <thead>
+                <th>Exercise/th>
+                <th>Sets</th>
+                <th>Reps</th>
+            </thead>
+            <tbody>
+                <td><%= exercise.name%></td>
+                <td><%= exercise.sets%></td>
+                <td><%= exercise.reps%></td>
+            </tbody>
+        </table>
+    <% }) %>
+    <form action="/routines/<%= routine._id %>/workouts/<%= routine.workouts[idx]._id %>/exercises">
+        <label>EXERCISE</label>
+        <input type="text" name="exercise" required>
+        <label>SETS</label>
+        <input type="number" min="0" name="sets" oninvalid="alert('Please enter a positive number')" required>
+        <label>REPS</label>
+        <input type="number" min="0" name="reps" oninvalid="alert('Please enter a positive number')" required>
+        <input type="submit" value="Add Exercise">
+        <br>
+    </form>
+<% }) %>
+<h3>Add another Workout Day</h3>
+<form action="/routines/<%= routine._id %>/workouts" method="POST">
+    <label>WORKOUT NAME</label>
+    <input type="text" name="name" required>
+    <input type="submit" value="CONTINUE">
+    <br>   
+</form>
+
+<%- include('../partials/footer') %>
