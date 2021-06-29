@@ -32,6 +32,7 @@ const routineSchema =  new Schema({
     name: String,  // EX: 5x5 Stronglifts
     type: String,
     creatorTips: String,
+    length: Number,
     workouts: [workoutSchema],
     comments: [commentSchema],
     tags: [String],

@@ -1,3 +1,14 @@
 <%- include('../partials/header') %>
 
+<form action="/routines" method="POST">
+    <label>ROUTINE NAME</label>
+    <input type="text" name="name" required>
+    <label>DAYS IN ROUTINE</label>
+    <input type="number" name="length" required>
+    <label>TIPS AND RECOMENDATIONS</label>
+    <textarea name="creatorTips"></textarea>
+    <br>
+    <input type="submit" value="CONTINUE">
+</form>
+
 <%- include('../partials/footer') %>
