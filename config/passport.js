@@ -10,7 +10,7 @@ passport.use(
         callbackURL: process.env.GOOGLE_CALLBACK
     },
     function(accessToken, refreshToken, profile, cb) {
-        User.findOne({ googleId: profile.id}).then(async function(user) {
+        User.findOne({ googleId: profile.id }).then(async function(user) {
             if (user) return cb(null, user);
             try {
                 user = await User.create({
