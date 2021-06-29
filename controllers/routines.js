@@ -6,7 +6,7 @@ module.exports = {
     create: create,
     createWorkout: createWorkout,
     createExercise: createExercise,
-    showWorkout: showWorkout,
+    showRoutine: showRoutine,
 }
 
 function newRoutine(req, res) {
@@ -39,25 +39,24 @@ function createWorkout(req, res) {
         routine.workouts.push(req.body);
         routine.save(function(err) {
             console.log('in save')
-            res.redirect(`/routines/${routine._id}/workouts/${routine.workouts._id}`)
+            res.redirect(`/routines/${routine._id}`)
         })
     })
 }
 
 function createExercise(req, res) {
     Routine.findById(req.params.id, function(err, routine) {
-        routine.workouts.findById(req.params.wid, function(err, workout) {
-            workout.exercises.push(req.body);
-            console.log('hello')
-            routine.save(function(err) {
-                res.redirect(res.redirect(`/routines/${routine._id}/workouts/${workout._id}`))
-            })
+        let workout = routine.workouts.id(req.params.wid);
+        workout.exercises.push(req.body);
+        console.log('hello')
+        routine.save(function(err) {
+            res.redirect(`/routines/${routine._id}`)
         })
     });
 }
 
-function showWorkout(req, res) {
+function showRoutine(req, res) {
     Routine.findById(req.params.id, function(err, routine) {
-        res.render('workouts/show', {routine, title: routine.name})
+        res.render('routines/show', {routine, title: routine.name})
     });
 }
