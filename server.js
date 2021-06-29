@@ -1,4 +1,3 @@
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -14,6 +13,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var routinesRouter = require('./routes/routines')
 
 var app = express();
 
@@ -44,6 +44,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/routines', routinesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
