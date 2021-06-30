@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 <% routine.workouts.forEach(function(workout){ %>
-    <h3><%= workout.name %></h3>
+    <% if (user && user._id.equals(routine.user)) { %>
+        <form action="/routines/workouts/<%= workout._id %>?_method=DELETE" method="POST">
+            <label><%= workout.name %></label>
+            <button type="submit">X</button>
+        </form>
+    <% } %>
     <% console.log(workout.exercises.length); %>
     <% if (workout.exercises.length > 0) { %>
         <table>
@@ -50,6 +55,12 @@
         <input type="submit" value="CONTINUE">
         <br>   
     </form>
-    <a href="/">Save</a>
 <% }}; %>
+<h4>RECOMENDATION ON HOW TO RUN THIS ROUTINE</h4>
+<br>
+<p><%= routine.creatorTips %> <%= routine.name %></p>
+<% if (user) {%>
+    <a href="/routines/<%= routine._id %>/edit">EDIT ROUTINE</a>
+    <a href="/">Save</a>
+<% }; %>
 <%- include('../partials/footer') %>

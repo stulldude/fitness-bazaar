@@ -8,6 +8,9 @@ module.exports = {
     createExercise: createExercise,
     showRoutine: showRoutine,
     deleteExercise: deleteExercise,
+    deleteWorkout: deleteWorkout,
+    edit: edit,
+    update: update,
 }
 
 function newRoutine(req, res) {
@@ -75,4 +78,42 @@ function deleteExercise(req, res, next) {
             return next(err);
         });
     });
+}
+
+function deleteWorkout(req,res, next) {
+    Routine.findOne({'workouts._id': req.params.wid}).then(function(routine) {
+        const workout = routine.workouts.id(req.params.wid); 
+        if(!routine.user.equals(req.user._id)) return res.redirect(`/routines/${routine._id}`);
+        workout.remove();
+        routine.save().then(function() {
+            res.redirect(`/routines/${routine._id}`);
+        }).catch(function(err) {
+            return next(err);
+        });
+    });
+}
+
+function edit(req, res) {
+    Routine.findById(req.params.id, function(err, routine) {
+        res.render(`routines/edit`, {title: "Update Routine", routine});
+    })
+}
+
+function update(req, res) {
+    console.log(req.body);
+    Routine.updateOne(req.params.id, req.body);
+    res.redirect(`/routines/${req.params.id}`)
+}
+
+function updateWorkout(req, res) {
+    Routine.findOne({'workouts._id': req.params.wid}).then(function(routine) {
+        const workout = routine.workouts.id(req.params.wid);
+        console.log(req.body);
+        workout.name = req.body;
+        routine.save().then(function() {
+            res.redirect(`/routines/${routine._id}`);
+        }).catch(function(err) {
+            return next(err);
+        });
+    })
 }

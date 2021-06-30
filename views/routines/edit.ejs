@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+
+<form action="/routines/<%= routine._id %>?_method=PUT" method="POST">
+    <input name="name" type="text" value="<%= routine.name %>">
+    <textarea name="creatorTips" id="" cols="30" rows="10"><%= routine.creatorTips %></textarea>
+    <input type="submit" value="UPDATE BABY">
+</form>
+
+<%- include('../partials/footer') %>
