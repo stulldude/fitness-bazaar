@@ -62,19 +62,17 @@ function showRoutine(req, res) {
     });
 }
 
-function deleteExercise(req, res) {
+function deleteExercise(req, res, next) {
     console.log('made it to deleteExercise')
     Routine.findOne({'workouts._id': req.params.wid}).then(function(routine) {
         const workout = routine.workouts.id(req.params.wid); 
-        workout.findOne({'exercises._id': req.params.eid}).then(function(workout) {
-            const exercise = workout.exercises.id(req.params.eid);
-            if(exercise.user.equals(req.user._id)) return res.redirect(`routines/${routine._id}`);
-            exercise.remove();
-            routine.save().then(function() {
-                res.redirect(`routines/${routine._id}`);
-            }).catch(function(err) {
-                return next(err);
-            });
+        const exercise = workout.exercises.id(req.params.eid);
+        if(!routine.user.equals(req.user._id)) return res.redirect(`/routines/${routine._id}`);
+        exercise.remove();
+        routine.save().then(function() {
+            res.redirect(`/routines/${routine._id}`);
+        }).catch(function(err) {
+            return next(err);
         });
     });
 }
