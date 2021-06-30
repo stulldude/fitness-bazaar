@@ -9,8 +9,9 @@ module.exports = {
     showRoutine: showRoutine,
     deleteExercise: deleteExercise,
     deleteWorkout: deleteWorkout,
-    edit: edit,
-    update: update,
+    edit: editRoutine,
+    update: updateRoutine,
+    index: index,
 }
 
 function newRoutine(req, res) {
@@ -93,27 +94,36 @@ function deleteWorkout(req,res, next) {
     });
 }
 
-function edit(req, res) {
+function editRoutine(req, res) {
     Routine.findById(req.params.id, function(err, routine) {
         res.render(`routines/edit`, {title: "Update Routine", routine});
     })
 }
 
-function update(req, res) {
-    console.log(req.body);
-    Routine.updateOne(req.params.id, req.body);
-    res.redirect(`/routines/${req.params.id}`)
+function updateRoutine(req, res) {
+    console.log(req.body)
+    Routine.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, routine) {
+        if(err || !routine) return res.redirect(`/`);
+        res.redirect(`/routines/${req.params.id}`);
+    });
 }
 
-function updateWorkout(req, res) {
-    Routine.findOne({'workouts._id': req.params.wid}).then(function(routine) {
-        const workout = routine.workouts.id(req.params.wid);
-        console.log(req.body);
-        workout.name = req.body;
-        routine.save().then(function() {
-            res.redirect(`/routines/${routine._id}`);
-        }).catch(function(err) {
-            return next(err);
-        });
+function index(req, res) {
+    console.log('in')
+    Routine.find(req.query, function(err, routines) {
+        console.log('found')
+        res.render('routines/index', {title: req.query.id, routines})
     })
 }
+// function updateWorkout(req, res) {
+//     Routine.findOne({'workouts._id': req.params.wid}).then(function(routine) {
+//         const workout = routine.workouts.id(req.params.wid);
+//         console.log(req.body);
+//         workout.name = req.body;
+//         routine.save().then(function() {
+//             res.redirect(`/routines/${routine._id}`);
+//         }).catch(function(err) {
+//             return next(err);
+//         });
+//     })
+// }

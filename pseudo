@@ -30,3 +30,9 @@ Have a create routine button
                 user must fill in each box.
                 When all filled in, enable create button
                     When clicked, show the corresponding workoutpage                                    // CREATE
+
+
+on create for routine, redirect to workout/new 
+
+
+icebox (appendChild to html if I want to )

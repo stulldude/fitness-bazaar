@@ -3,6 +3,7 @@ const router = express.Router();
 const routinesCtrl = require('../controllers/routines.js');
 
 router.get('/new', routinesCtrl.new);
+router.get('/', routinesCtrl.index);
 router.get('/:id/workouts/new', routinesCtrl.newWorkout);
 router.get('/:id/', routinesCtrl.showRoutine)
 router.get('/:id/edit', routinesCtrl.edit)
