@@ -8,5 +8,6 @@ router.get('/:id/', routinesCtrl.showRoutine)
 router.post('/:id/workouts', routinesCtrl.createWorkout);
 router.post('/:id/workouts/:wid/exercises', routinesCtrl.createExercise);
 router.post('/', routinesCtrl.create);
+router.delete('/workouts/:wid/exercises/:eid', routinesCtrl.deleteExercise);
 
 module.exports = router;

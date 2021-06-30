@@ -7,6 +7,7 @@ module.exports = {
     createWorkout: createWorkout,
     createExercise: createExercise,
     showRoutine: showRoutine,
+    deleteExercise: deleteExercise,
 }
 
 function newRoutine(req, res) {
@@ -58,5 +59,22 @@ function createExercise(req, res) {
 function showRoutine(req, res) {
     Routine.findById(req.params.id, function(err, routine) {
         res.render('routines/show', {routine, title: routine.name})
+    });
+}
+
+function deleteExercise(req, res) {
+    console.log('made it to deleteExercise')
+    Routine.findOne({'workouts._id': req.params.wid}).then(function(routine) {
+        const workout = routine.workouts.id(req.params.wid); 
+        workout.findOne({'exercises._id': req.params.eid}).then(function(workout) {
+            const exercise = workout.exercises.id(req.params.eid);
+            if(exercise.user.equals(req.user._id)) return res.redirect(`routines/${routine._id}`);
+            exercise.remove();
+            routine.save().then(function() {
+                res.redirect(`routines/${routine._id}`);
+            }).catch(function(err) {
+                return next(err);
+            });
+        });
     });
 }

@@ -30,7 +30,7 @@ const workoutSchema = new Schema({
 const routineSchema =  new Schema({
     id: String,
     name: String,  // EX: 5x5 Stronglifts
-    type: String,
+    type: {type: String, enum: ["Cardio", "Strength", "Hypertrophy", "Other"]},
     creatorTips: String,
     length: Number,
     workouts: [workoutSchema],

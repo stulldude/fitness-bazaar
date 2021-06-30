@@ -3,8 +3,13 @@
 <form action="/routines" method="POST">
     <label>ROUTINE NAME</label>
     <input type="text" name="name" required>
-    <label>DAYS IN ROUTINE</label>
-    <input type="number" name="length" required>
+    <label>TYPE OF WORKOUT</label>
+    <select name="type" required>
+        <option value="Cardio">Cardio</option>
+        <option value="Strength">Strength</option>
+        <option value="Hypertrophy">Hypertrophy</option>
+        <option value="Other">Other</option>
+    </select>
     <label>TIPS AND RECOMENDATIONS</label>
     <textarea name="creatorTips"></textarea>
     <br>

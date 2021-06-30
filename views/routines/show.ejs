@@ -2,7 +2,7 @@
 <% routine.workouts.forEach(function(workout){ %>
     <h3><%= workout.name %></h3>
     <% console.log(workout.exercises.length); %>
-    <% if (workout.exercises.length > 0) workout.exercises.forEach(function(exercise) { %>
+    <% if (workout.exercises.length > 0) { %>
         <table>
             <thead>
                 <th>Exercise</th>
@@ -10,29 +10,46 @@
                 <th>Reps</th>
             </thead>
             <tbody>
-                <td><% console.log(exercise.name); %> <%= exercise.name%></td>
-                <td><% console.log(exercise.sets); %><%= exercise.sets%></td>
-                <td><%= exercise.reps%></td>
+            <% workout.exercises.forEach(function(exercise) { %>
+                <tr>
+                    <td><% console.log(exercise.name); %> <%= exercise.name%></td>
+                    <td><% console.log(exercise.sets); %> <%= exercise.sets%></td>
+                    <td><%= exercise.reps%></td>
+                    <td>
+                        <% if (user && user._id.equals(routine.user)) { %>
+                        <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }); %>
             </tbody>
         </table>
-    <% }) %>
-    <form action="/routines/<%= routine._id %>/workouts/<%= workout._id %>/exercises" method="POST">
-        <label>EXERCISE</label>
-        <input type="text" name="name" required>
-        <label>SETS</label>
-        <input type="number" min="0" name="sets" oninvalid="alert('Please enter a positive number')" required>
-        <label>REPS</label>
-        <input type="number" min="0" name="reps" oninvalid="alert('Please enter a positive number')" required>
-        <input type="submit" value="Add Exercise">
-        <br>
-    </form>
+    <% } %>
+    <% if (user) {%>
+        <% if (routine.user.equals(user._id)) { %>
+            <form action="/routines/<%= routine._id %>/workouts/<%= workout._id %>/exercises" method="POST">
+                <label>EXERCISE</label>
+                <input type="text" name="name" required>
+                <label>SETS</label>
+                <input type="number" min="0" name="sets" oninvalid="alert('Please enter a positive number')" required>
+                <label>REPS</label>
+                <input type="number" min="0" name="reps" oninvalid="alert('Please enter a positive number')" required>
+                <input type="submit" value="Add Exercise">
+                <br>
+            </form>
+    <% }} %>
 <% }) %>
-<h3>Add another Workout Day</h3>
-<form action="/routines/<%= routine._id %>/workouts" method="POST">
-    <label>WORKOUT NAME</label>
-    <input type="text" name="name" required>
-    <input type="submit" value="CONTINUE">
-    <br>   
-</form>
-
+<% if (user) {%>
+    <% if (routine.user.equals(user._id)) { %>
+    <h3>Add another Workout Day</h3>
+    <form action="/routines/<%= routine._id %>/workouts" method="POST">
+        <label>WORKOUT NAME</label>
+        <input type="text" name="name" required>
+        <input type="submit" value="CONTINUE">
+        <br>   
+    </form>
+    <a href="/">Save</a>
+<% }}; %>
 <%- include('../partials/footer') %>
