@@ -17,7 +17,7 @@
                     <td><%= exercise.reps%></td>
                     <td>
                         <% if (user && user._id.equals(routine.user)) { %>
-                        <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
+                        <form action="/routines/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
                             <button type="submit">X</button>
                         </form>
                         <% } %>

@@ -10,4 +10,5 @@ router.post('/:id/workouts/:wid/exercises', routinesCtrl.createExercise);
 router.post('/', routinesCtrl.create);
 router.delete('/workouts/:wid/exercises/:eid', routinesCtrl.deleteExercise);
 
+
 module.exports = router;
