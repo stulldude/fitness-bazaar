@@ -14,12 +14,12 @@ body {
   grid-template-areas: 
   "nav"
   "main";
-  background-color: var(--my-white);
+  background-color: var(--accent-light);
 }
 
 body > nav {
   grid-area: nav;
-  background-color: var(--accent-light);
+  background-color: var(--my-yellow);
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
@@ -44,19 +44,22 @@ a {
 }
 
 #card-holder {
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 4rem;
-  margin: 2rem 10rem;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: 40% 40%;
+  grid-gap: 2rem;
 }
 
 .card {
   width: 80%;
   height: 30vmin;
   font-size: 8vmin;
+  text-shadow: 2px 2px var(--accent-dark);
   text-decoration: none;
   color: var(--my-yellow);
-  box-shadow: 0 4px 8px 0 var(--accent-light); /* this adds the "card" effect */
+  box-shadow: 0 4px 8px 0 var(--accent-dark); /* this adds the "card" effect */
   padding: 16px;
   text-align: center;
   background-color: var(--accent-light);
@@ -66,4 +69,43 @@ a {
 
 title {
   color: var(--my-yellow);
+}
+
+#cardio {
+  background-image: url("https://images.unsplash.com/photo-1499438075715-fc23ef376ab9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1908&q=80");
+  background-size: cover;
+}
+
+#other {
+  background-image: url("https://images.unsplash.com/photo-1593810451137-5dc55105dace?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80");
+  background-size: cover;
+}
+
+#strength {
+  background-image: url("https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zml0bmVzc3xlbnwwfHwwfGJsYWNrX2FuZF93aGl0ZXw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+}
+
+#hypertrophy {
+  background-image: url("https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80");
+  background-size: cover;
+}
+
+div.create {
+  text-align: center;
+}
+
+#create {
+  display: flex;
+  width: 50vmin;
+  margin-top: 1rem;
+  height: 10vmin;
+  font-size: 8vmin;
+  text-decoration: none;
+  color: var(--accent-dark);
+  box-shadow: 0 4px 8px 0 var(--accent-dark); /* this adds the "card" effect */
+  border-radius: 15px;
+  text-align: center;
+  background-color: var(--my-yellow);
+  justify-content: center;
 }
