@@ -1,9 +1,12 @@
 <%- include('../partials/header') %>
-
-<form action="/routines/<%= routine._id %>?_method=PUT" method="POST">
-    <input name="name" type="text" value="<%= routine.name %>">
-    <textarea name="creatorTips" id="" cols="30" rows="10"><%= routine.creatorTips %></textarea>
-    <input type="submit" value="UPDATE BABY">
-</form>
+<div class="showing">
+    <form id="edit-r" action="/routines/<%= routine._id %>?_method=PUT" method="POST">
+        <label >TITLE</label>
+        <input class="type-stuff" name="name" type="text" value="<%= routine.name %>">
+        <label >TIPS</label>
+        <textarea class="type-stuff" name="creatorTips" id="" cols="30" rows="10"><%= routine.creatorTips %></textarea>
+        <input class="add" type="submit" value="UPDATE BABY">
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

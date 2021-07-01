@@ -3,8 +3,15 @@
   --accent-light: #5D6D7C;
   --my-white: #F6F5F0;
   --my-yellow: #F9DA3A;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
+.showing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 body {
   margin: 0;
@@ -25,7 +32,7 @@ body > nav {
   flex-direction: row-reverse;
   align-items: center;
   padding: 20px 20px 20px 30px;
-}x
+}
 
 a {
   color: var(--accent-dark);
@@ -135,7 +142,7 @@ div.create {
   display: flex;
   width: 50vmin;
   height: 10vmin;
-  font-size: 8vmin;
+  font-size: 7vmin;
   text-decoration: none;
   color: var(--accent-dark);
   box-shadow: 0 4px 8px 0 var(--accent-dark); /* this adds the "card" effect */
@@ -160,4 +167,37 @@ div.create {
 .delete:hover, .add:hover {
   background-color: var(--accent-dark);
   color: var(--my-yellow);
+}
+
+.showing hr {
+  width: 60%;
+  border-top: 2px solid var(--my-yellow);
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 10px;
+}
+
+#tips {
+  width: 60%;
+}
+
+#edit-r {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-stuff {
+  border: 0px solid;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 var(--accent-dark);
+}
+
+#edit-r input {
+  margin-top: .8rem;
+}
+
+#edit-r label {
+  font-size: 4vmin;
+  font-weight: bold;
+  margin-top: .5rem;
 }
