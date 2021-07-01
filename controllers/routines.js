@@ -91,7 +91,7 @@ function show(req, res) {
 
 function editRoutine(req, res) {
     Routine.findById(req.params.id, function(err, routine) {
-        res.render(`routines/edit`, {title: "Update Routine", routine});
+        res.render(`routines/edit`, {title: "UPDATE ROUTINE", routine});
     })
 }
 
@@ -107,7 +107,7 @@ function index(req, res) {
     console.log(req.query)
     Routine.find(req.query, function(err, routines) {
         console.log('found')
-        res.render('routines/index', {title: `The ${req.query.type} Stall`, routines})
+        res.render('routines/index', {title: `THE ${req.query.type.toUpperCase()} STALL`, routines})
     })
 }
 // function updateWorkout(req, res) {

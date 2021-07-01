@@ -41,9 +41,9 @@
                 <label>EXERCISE</label>
                 <input class="type-stuff" type="text" name="name" required>
                 <label>SETS</label>
-                <input class="type-stuff" type="number" min="0" name="sets" oninvalid="alert('Please enter a positive number')" required>
+                <input class="type-stuff number-entry" type="number" min="0" name="sets" oninvalid="alert('Please enter a positive number')" required>
                 <label>REPS</label>
-                <input class="type-stuff" type="number" min="0" name="reps" oninvalid="alert('Please enter a positive number')" required>
+                <input class="type-stuff number-entry" type="number" min="0" name="reps" oninvalid="alert('Please enter a positive number')" required>
                 <input class="add" type="submit" value="Add Exercise">
                 <br>
             </form>
@@ -65,10 +65,11 @@
     <p><%= routine.creatorTips %></p>
 </div>
 <% if (user) {%>
+    <% if (routine.user.equals(user._id)) { %>
     <div>
         <a class="add" href="/routines/<%= routine._id %>/edit">EDIT ROUTINE</a>
         <a class="add" href="/">SAVE</a>
     </div>
-<% }; %>    
+<% }}; %>    
 </div>
 <%- include('../partials/footer') %>

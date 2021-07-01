@@ -106,8 +106,9 @@ table td {
   color: var(--my-yellow);
 }
 
-title {
-  color: var(--my-yellow);
+#title {
+  color: var(--accent-dark);
+  font-size: 34px;
 }
 
 #cardio {
@@ -140,9 +141,9 @@ div.create {
 
 #create {
   display: flex;
-  width: 50vmin;
+  width: 55vmin;
   height: 10vmin;
-  font-size: 7vmin;
+  font-size: 6.8vmin;
   text-decoration: none;
   color: var(--accent-dark);
   box-shadow: 0 4px 8px 0 var(--accent-dark); /* this adds the "card" effect */
@@ -190,6 +191,7 @@ div.create {
   border: 0px solid;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 var(--accent-dark);
+  text-align: right;
 }
 
 .edit-r input {
@@ -212,4 +214,8 @@ div.create {
   grid-column: span 2;
   width: 6rem;
   margin-left: auto;
+}
+
+.number-entry {
+  width: 8vmin;
 }
