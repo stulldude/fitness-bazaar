@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 <% routine.workouts.forEach(function(workout){ %>
-    <% if (user && user._id.equals(routine.user)) { %>
+    <table>
         <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
             <label class="workout-title"><%= workout.name %></label>
-            <button type="submit">X</button>
+            <% if (user && user._id.equals(routine.user)) { %>
+                <button class="delete" type="submit">X</button>
+            <% } %>
         </form>
-    <% } %>
     <% console.log(workout.exercises.length); %>
-    <% if (workout.exercises.length > 0) { %>
-        <table>
+            <% if (workout.exercises.length > 0) { %>
             <thead>
                 <th>Exercise</th>
                 <th>Sets</th>
@@ -23,15 +23,15 @@
                     <td>
                         <% if (user && user._id.equals(routine.user)) { %>
                         <form action="/workouts/<%= workout._id %>/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
-                            <button type="submit">X</button>
+                            <button class="delete" type="submit">X</button>
                         </form>
                         <% } %>
                     </td>
                 </tr>
             <% }); %>
             </tbody>
+            <% } %>
         </table>
-    <% } %>
     <% if (user) {%>
         <% if (routine.user.equals(user._id)) { %>
             <form action="/routines/<%= routine._id %>/workouts/<%= workout._id %>/exercises" method="POST">
@@ -41,7 +41,7 @@
                 <input type="number" min="0" name="sets" oninvalid="alert('Please enter a positive number')" required>
                 <label>REPS</label>
                 <input type="number" min="0" name="reps" oninvalid="alert('Please enter a positive number')" required>
-                <input type="submit" value="Add Exercise">
+                <input class="add" type="submit" value="Add Exercise">
                 <br>
             </form>
     <% }} %>
@@ -52,7 +52,7 @@
     <form action="/routines/<%= routine._id %>/workouts" method="POST">
         <label>WORKOUT NAME</label>
         <input type="text" name="name" required>
-        <input type="submit" value="CONTINUE">
+        <input class="add" type="submit" value="Add Workout">
         <br>   
     </form>
 <% }}; %>

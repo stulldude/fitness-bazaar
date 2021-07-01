@@ -36,12 +36,16 @@ a:visited {
 }
 
 table {
+  background-color: var(--my-yellow);
+  box-shadow: 0 4px 8px 0 var(--accent-dark);
+  border-radius: 15px;
   font-size: 20px;
+  margin: .5rem;
 }
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid var(--my-yellow);
+  border-bottom: 2px solid var(--accent-light);
 }
 
 table td {
@@ -144,4 +148,16 @@ div.create {
 .workout-title {
   font-size: 2rem;
   font-weight: bolder;
+}
+
+.delete, .add{
+  border-radius: 5px;
+  border-style: solid;
+  border-color: var(--accent-dark);
+  background-color: var(--my-yellow);
+}
+
+.delete:hover, .add:hover {
+  background-color: var(--accent-dark);
+  color: var(--my-yellow);
 }
