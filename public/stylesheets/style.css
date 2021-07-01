@@ -90,7 +90,7 @@ table td {
 .card {
   width: 95%;
   height: 26vmin;
-  font-size: 8vmin;
+  font-size: 6vw;
   text-shadow: 2px 2px var(--accent-dark);
   text-decoration: none;
   color: var(--my-yellow);
@@ -181,7 +181,7 @@ div.create {
   width: 60%;
 }
 
-#edit-r {
+.edit-r {
   display: flex;
   flex-direction: column;
 }
@@ -192,12 +192,24 @@ div.create {
   box-shadow: 0 4px 8px 0 var(--accent-dark);
 }
 
-#edit-r input {
+.edit-r input {
   margin-top: .8rem;
 }
 
-#edit-r label {
+.edit-r label {
   font-size: 4vmin;
   font-weight: bold;
   margin-top: .5rem;
+}
+
+.my_forms {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
+
+.my_forms input {
+  grid-column: span 2;
+  width: 6rem;
+  margin-left: auto;
 }

@@ -1,19 +1,19 @@
 <%- include('../partials/header') %>
-
-<form action="/routines" method="POST">
-    <label>ROUTINE NAME</label>
-    <input type="text" name="name" required>
-    <label>TYPE OF WORKOUT</label>
-    <select name="type" required>
-        <option value="Cardio">Cardio</option>
-        <option value="Strength">Strength</option>
-        <option value="Hypertrophy">Hypertrophy</option>
-        <option value="Other">Other</option>
-    </select>
-    <label>TIPS AND RECOMENDATIONS</label>
-    <textarea name="creatorTips"></textarea>
-    <br>
-    <input type="submit" value="CONTINUE">
-</form>
-
+<div class="showing">
+    <form class="edit-r" action="/routines" method="POST">
+        <label>ROUTINE NAME</label>
+        <input class="type-stuff" type="text" name="name" required>
+        <label>TYPE OF WORKOUT</label>
+        <select class="type-stuff" name="type" required>
+            <option value="Cardio">Cardio</option>
+            <option value="Strength">Strength</option>
+            <option value="Hypertrophy">Hypertrophy</option>
+            <option value="Other">Other</option>
+        </select>
+        <label>TIPS AND RECOMENDATIONS</label>
+        <textarea class="type-stuff" name="creatorTips"></textarea>
+        <br>
+        <input class="add" type="submit" value="CONTINUE">
+    </form>
+</div>
 <%- include('../partials/footer') %>

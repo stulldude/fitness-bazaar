@@ -1,10 +1,11 @@
 <%- include('../partials/header') %>
-
-<form action="/routines/<%= routineId %>/workouts" method="POST">
-    <label>WORKOUT NAME</label>
-    <input type="text" name="name" required>
-    <input type="submit" value="CONTINUE">
-    <br>   
-</form>
+<div class="showing">
+    <form class="edit-r" action="/routines/<%= routineId %>/workouts" method="POST">
+        <label>WORKOUT NAME</label>
+        <input class="type-stuff"  type="text" name="name" required>
+        <input class="add" type="submit" value="CONTINUE">
+        <br>   
+    </form>
+</div>
 
 <%- include('../partials/footer') %>

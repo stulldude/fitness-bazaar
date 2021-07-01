@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <div class="showing">
-    <form id="edit-r" action="/routines/<%= routine._id %>?_method=PUT" method="POST">
+    <form class="edit-r" action="/routines/<%= routine._id %>?_method=PUT" method="POST">
         <label >TITLE</label>
         <input class="type-stuff" name="name" type="text" value="<%= routine.name %>">
         <label >TIPS</label>
