@@ -10,11 +10,11 @@
 <body>   
     <nav>
         <% if (user) { %>
-            <a href="/logout">LOG OUT</a>
+        <a href="/logout">LOG OUT</a>
         <% } else { %>
             <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
         <% } %>
-            <a href="../index"></a>
+        <h1><%= title %></h1>
+        <a href="/">HOME</a>
     </nav>
     <main>
-        <h1><%= title %></h1>

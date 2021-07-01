@@ -1,11 +1,9 @@
 <%- include('./partials/header') %>
-
-<% if (user) { %>
-<a href="/routines/new">Create Routine</a>
-<% } %>
-<a href="/routines?type=Strength" >Strength</a>
-<a href="/routines?type=Cardio" >Cardio</a>
-<a href="/routines?type=Hypertrophy" >Hypertrophy</a>
-<a href="/routines?type=Other" >Other</a>
+<div id="card-holder">
+    <a class="card" href="/routines?type=Strength" >Strength</a>
+    <a class="card" href="/routines?type=Cardio" >Cardio</a>
+    <a class="card" href="/routines?type=Hypertrophy" >Hypertrophy</a>
+    <a class="card" href="/routines?type=Other" >Other</a>
+</div>
 
 <%- include('./partials/footer') %>

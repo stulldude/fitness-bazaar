@@ -1,6 +1,30 @@
+:root {
+  --accent-dark: #0A0903;
+  --accent-light: #5D6D7C;
+  --my-white: #F6F5F0;
+  --my-yellow: #F9DA3A;
+}
+
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+  "nav"
+  "main";
+  background-color: var(--my-white);
+}
+
+body > nav {
+  grid-area: nav;
+  background-color: var(--accent-light);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 0 20px 0 30px;
 }
 
 a {
@@ -12,8 +36,34 @@ a {
   justify-content: center;
   align-items: center;
   height: 12px;
+  color: var(--my-white);
 }
 
 .login img {
   height: 30px;
+}
+
+#card-holder {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 4rem;
+  margin: 2rem 10rem;
+}
+
+.card {
+  width: 80%;
+  height: 30vmin;
+  font-size: 8vmin;
+  text-decoration: none;
+  color: var(--my-yellow);
+  box-shadow: 0 4px 8px 0 var(--accent-light); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: var(--accent-light);
+  border-radius: 15px;
+  vertical-align: middle
+}
+
+title {
+  color: var(--my-yellow);
 }
