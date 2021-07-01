@@ -6,4 +6,10 @@
     <a id="other" class="card" href="/routines?type=Other" >Other</a>
 </div>
 
+<% if (user) { %>
+    <div class="create">    
+        <a id="create" href="/routines/new">Create Routine</a>
+    </div>
+<% } %>
+
 <%- include('./partials/footer') %>
