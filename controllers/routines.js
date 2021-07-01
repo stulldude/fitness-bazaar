@@ -109,10 +109,10 @@ function updateRoutine(req, res) {
 }
 
 function index(req, res) {
-    console.log('in')
+    console.log(req.query)
     Routine.find(req.query, function(err, routines) {
         console.log('found')
-        res.render('routines/index', {title: req.query.id, routines})
+        res.render('routines/index', {title: `The ${req.query.type} Stall`, routines})
     })
 }
 // function updateWorkout(req, res) {
