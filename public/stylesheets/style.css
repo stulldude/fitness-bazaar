@@ -48,6 +48,7 @@ table {
   border-radius: 15px;
   font-size: 20px;
   margin: .5rem;
+  width: 35%;
 }
 
 table thead th {
@@ -171,7 +172,7 @@ div.create {
 }
 
 .showing hr {
-  width: 60%;
+  width: 30%;
   border-top: 2px solid var(--my-yellow);
   border-bottom: 0px;
   border-left: 0px;
