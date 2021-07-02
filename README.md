@@ -4,9 +4,10 @@ This is a MEN app. (Mongoose, Express, Node)
 
 This is a CRUD app that stores workout routines in a relational database. You can create your own or view the multitude of routines created by browsing [HERE](fitness-bazaar.herokuapp.com). The routines are sorted by four types. Strength, hypertrophy (size), cardio, and other.
 
-<img lat="WOAH" src="" width='300px'>
+<img lat="WOAH" src="https://i.imgur.com/rXJeXYn.jpg" width='300px'>
+<img lat="WOAH" src="https://i.imgur.com/CS3CEZ4.png" width='300px'>
 
-## TeECHNOLOGIES AND FEATURES
+## TECHNOLOGIES AND FEATURES
     - HTML / JS / CSS
     - Node
     - Mongoose
